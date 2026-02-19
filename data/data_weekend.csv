@@ -1,0 +1,50 @@
+name,latitude,longitude,total_price,nights,bedrooms,bathrooms,area_m2,rating,reviews_count,amenities
+Central Park Residence,46.7712,23.6236,780,2,1,1,42,9.6,214,wifi|parking|balcony|ac|elevator
+Iulius Lake Apartments,46.7785,23.6301,820,2,1,1,48,9.7,189,wifi|parking|balcony|ac
+Cluj City View Studio,46.7691,23.6102,520,2,1,1,30,9.2,96,wifi|balcony
+Avram Iancu Suites,46.7744,23.6188,690,2,1,1,40,9.4,143,wifi|elevator|ac
+Gruia Panorama Loft,46.7861,23.6023,610,2,1,1,38,9.3,88,wifi|balcony|ac
+Viva City Apartment,46.7813,23.6355,900,2,1,1,55,9.8,310,wifi|parking|balcony|elevator|ac
+Sigma Residence Studio,46.7689,23.6421,470,2,1,1,28,8.9,45,wifi
+Platinia Smart Stay,46.7892,23.5988,840,2,1,1,50,9.6,201,wifi|parking|elevator|ac
+Buna Ziua Comfort Studio,46.7604,23.6512,480,2,1,1,32,9.0,52,wifi|balcony
+Gheorgheni Urban Flat,46.7923,23.6274,750,2,1,1,46,9.5,172,wifi|parking|ac
+Zorilor Premium Studio,46.7541,23.6127,560,2,1,1,34,9.1,78,wifi|balcony
+Opera Central Apartment,46.7728,23.6215,880,2,1,1,53,9.7,265,wifi|parking|balcony|ac
+Hasdeu Modern Loft,46.7655,23.5944,610,2,1,1,37,9.2,104,wifi|ac
+Somes Riverside Studio,46.7777,23.6199,540,2,1,1,33,9.0,67,wifi|balcony
+Manastur View Apartment,46.7832,23.5898,500,2,1,1,36,8.8,39,wifi
+FSEGA Business Flat,46.7844,23.6305,860,2,1,1,52,9.6,198,wifi|parking|elevator|ac
+Grigorescu Lake Studio,46.7739,23.5856,620,2,1,1,41,9.3,111,wifi|balcony
+Memorandumului Suite,46.7705,23.6231,910,2,1,1,56,9.8,332,wifi|parking|balcony|elevator|ac
+Observatorului Cozy Flat,46.7567,23.6064,490,2,1,1,31,9.0,58,wifi
+Marasti Green Apartment,46.7888,23.6403,720,2,1,1,45,9.4,140,wifi|parking|ac
+City Garden Residence,46.7741,23.6154,830,2,1,1,50,9.6,223,wifi|balcony|elevator|ac
+Napoca Old Town Studio,46.7702,23.6224,760,2,1,1,44,9.5,184,wifi|balcony|ac
+Dorobantilor Smart Flat,46.7850,23.6278,640,2,1,1,39,9.2,101,wifi|ac
+Record Park Apartments,46.7803,23.6322,890,2,1,1,54,9.7,276,wifi|parking|balcony|elevator|ac
+The Office Studio,46.7879,23.6358,810,2,1,1,49,9.6,211,wifi|parking|ac
+Europa Elegant Studio,46.7519,23.6195,520,2,1,1,33,9.1,70,wifi|balcony
+Campului Boutique Flat,46.7598,23.6071,480,2,1,1,30,8.9,44,wifi
+Riviera Luxury Apartment,46.7825,23.6333,950,2,1,1,60,9.9,402,wifi|parking|balcony|elevator|ac
+Central Plaza Residence,46.7719,23.6242,870,2,1,1,52,9.7,289,wifi|parking|balcony|ac
+Cluj Arena View Studio,46.7773,23.5842,560,2,1,1,35,9.1,83,wifi|balcony
+Urban Nest Apartment,46.7680,23.6180,640,2,1,1,40,9.3,122,wifi|ac
+River Park Loft,46.7799,23.6205,720,2,1,1,45,9.4,156,wifi|parking|ac
+Avram Iancu Luxury Suite,46.7733,23.6239,980,2,1,1,62,9.9,418,wifi|parking|balcony|elevator|ac
+Gheorgheni Park Studio,46.7911,23.6280,600,2,1,1,38,9.2,93,wifi
+Marasti Business Apartment,46.7867,23.6390,850,2,1,1,51,9.6,205,wifi|parking|ac
+Zorilor Terrace Flat,46.7555,23.6112,530,2,1,1,34,9.0,61,wifi|balcony
+Old Town Chic Studio,46.7709,23.6218,900,2,1,1,55,9.8,330,wifi|parking|balcony|ac
+Sigma City Apartment,46.7699,23.6415,500,2,1,1,32,8.9,48,wifi
+Buna Ziua Premium Flat,46.7612,23.6530,610,2,1,1,39,9.2,102,wifi|ac
+Platinia Deluxe Suite,46.7895,23.5983,940,2,1,1,58,9.8,354,wifi|parking|balcony|elevator|ac
+Central Comfort Studio,46.7724,23.6220,700,2,1,1,42,9.4,141,wifi|balcony
+Cluj Hills Apartment,46.8061,23.6125,520,2,1,1,33,9.0,57,wifi
+Somes Park Loft,46.7781,23.6187,760,2,1,1,47,9.5,170,wifi|parking|ac
+Napoca Boutique Flat,46.7715,23.6230,880,2,1,1,53,9.7,268,wifi|parking|balcony|elevator|ac
+Manastur Modern Studio,46.7849,23.5901,490,2,1,1,31,8.8,36,wifi
+Faget Forest Retreat,46.7482,23.5844,650,2,1,1,45,9.3,119,wifi|balcony
+Hasdeu Smart Stay,46.7664,23.5961,580,2,1,1,37,9.1,84,wifi|ac
+City Skyline Apartment,46.7794,23.6248,920,2,1,1,59,9.9,401,wifi|parking|balcony|elevator|ac
+Lake View Residence,46.7837,23.6310,870,2,1,1,52,9.7,287,wifi|parking|balcony|ac
