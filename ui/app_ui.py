@@ -1,4 +1,6 @@
 import streamlit as st
+import folium
+from streamlit_folium import st_folium
 
 from repository.listing_repository import ListingRepository
 from service.geo_service import GeoService
@@ -14,6 +16,15 @@ def run_app():
 
     st.title("🏠 Smart Apartment Pricing Engine")
     st.markdown("Find optimal nightly price based on similar listings.")
+
+    if "selected_location" not in st.session_state:
+        st.session_state.selected_location = None
+
+    if "map_center" not in st.session_state:
+        st.session_state.map_center = [46.7717142, 23.6313795]
+
+    if "map_zoom" not in st.session_state:
+        st.session_state.map_zoom = 13
 
     # -------------------------
     # Dataset selection
@@ -40,10 +51,6 @@ def run_app():
 
     st.sidebar.header("Your Apartment Details")
 
-
-    latitude = st.sidebar.number_input("Latitude", value=46.7717142, format="%.7f")
-    longitude = st.sidebar.number_input("Longitude", value=23.6313795, format="%.7f")
-
     bedrooms = st.sidebar.number_input("Bedrooms", min_value=1, value=1)
     bathrooms = st.sidebar.number_input("Bathrooms", min_value=1, value=1)
 
@@ -63,6 +70,64 @@ def run_app():
     # -------------------------
     # Build Target
     # -------------------------
+
+    st.subheader("📍 Select Apartment Location")
+
+    map_center = [46.7717142, 23.6313795]
+
+    m = folium.Map(location=st.session_state.map_center,
+    zoom_start=st.session_state.map_zoom)
+
+
+    if st.session_state.selected_location is not None:
+        folium.Marker(
+            location=st.session_state.selected_location,
+            tooltip="Your Apartment",
+            icon=folium.Icon(color="red", icon="home")
+        ).add_to(m)
+
+    map_data = st_folium(m, width=700, height=500)
+
+    # if map_data:
+    #     # păstrăm poziția și zoom-ul
+    #     if map_data.get("center"):
+    #         st.session_state.map_center = [
+    #             map_data["center"]["lat"],
+    #             map_data["center"]["lng"]
+    #         ]
+    #
+    #     if map_data.get("zoom"):
+    #         st.session_state.map_zoom = map_data["zoom"]
+
+
+
+    if map_data and map_data.get("last_clicked"):
+        if map_data.get("center"):
+            st.session_state.map_center = [
+                map_data["center"]["lat"],
+                map_data["center"]["lng"]
+            ]
+
+        if map_data.get("zoom"):
+            st.session_state.map_zoom = map_data["zoom"]
+        clicked = map_data["last_clicked"]
+        new_location = [clicked["lat"], clicked["lng"]]
+
+        if st.session_state.selected_location != new_location:
+            st.session_state.selected_location = new_location
+
+    if st.session_state.selected_location is not None:
+        latitude, longitude = st.session_state.selected_location
+        st.success(f"Selected Location: {latitude:.7f}, {longitude:.7f}")
+    else:
+        st.info("Click on the map to select your apartment location.")
+
+    if st.session_state.selected_location is None:
+        st.warning("Please select a location on the map.")
+        return
+
+    latitude = st.session_state.selected_location[0]
+    longitude = st.session_state.selected_location[1]
 
     target = Listing(
         name="My Apartment",
