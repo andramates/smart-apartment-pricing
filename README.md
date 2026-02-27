@@ -4,6 +4,11 @@ A pricing system that combines similarity-based market analysis with machine lea
 
 ---
 
+## Application Preview
+
+![Application Preview](assets/app_preview_1.png)
+![Application Preview](assets/app_preview_2.png)
+
 ## Overview
 
 This project implements a hybrid pricing strategy that integrates:
