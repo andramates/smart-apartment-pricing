@@ -7,6 +7,7 @@ from service.geo_service import GeoService
 from service.filter_service import FilterService
 from service.similarity_service import SimilarityService
 from service.pricing_service import PricingService
+from service.ml_pricing_service import MLPricingService
 from domain.listing import Listing
 
 
@@ -88,17 +89,6 @@ def run_app():
 
     map_data = st_folium(m, width=700, height=500)
 
-    # if map_data:
-    #     # păstrăm poziția și zoom-ul
-    #     if map_data.get("center"):
-    #         st.session_state.map_center = [
-    #             map_data["center"]["lat"],
-    #             map_data["center"]["lng"]
-    #         ]
-    #
-    #     if map_data.get("zoom"):
-    #         st.session_state.map_zoom = map_data["zoom"]
-
 
 
     if map_data and map_data.get("last_clicked"):
@@ -164,7 +154,12 @@ def run_app():
 
         pricing = PricingService.recommend_price(ranked, top_n=10)
 
+        ml_service = MLPricingService()
+        trained = ml_service.train(ranked, target, top_n = 30)
+
+
         st.subheader("📊 Pricing Insights")
+
 
         if pricing["recommended_price"] is None:
             st.warning("No comparable listings found.")
@@ -175,6 +170,38 @@ def run_app():
         col1.metric("Recommended Price", f"{pricing['recommended_price']} lei")
         col2.metric("Median Market Price", f"{pricing['median_price']} lei")
         col3.metric("Average Market Price", f"{pricing['average_price']} lei")
+
+        if trained:
+
+            predicted_price = ml_service.predict(target, target)
+            metrics = ml_service.get_metrics()
+
+            st.subheader("👽 AI Model Performance")
+
+            col1, col2, col3 = st.columns(3)
+
+            col1.metric("Best Model", metrics["best_model"])
+            col2.metric("Best R² (test)", f"{metrics['best_r2']:.2f}")
+            col3.metric("Best MAE (test)", f"{metrics['best_mae']:.2f} lei")
+
+            st.write("Linear Regression R²:", f"{metrics['linear_r2']:.2f}")
+            st.write("Random Forest R²:", f"{metrics['rf_r2']:.2f}")
+
+            st.metric("AI Predicted Price", f"{predicted_price:.2f} lei")
+
+            if ml_service.best_model_name == "Random Forest":
+                explanation = ml_service.explain(target, target)
+
+                st.subheader("🔎 SHAP Explanation")
+
+                for feature, impact in explanation.items():
+                    st.write(f"{feature}: {impact:.2f} lei impact")
+
+
+        else:
+            st.warning("Not enough data to train AI model.")
+
+
 
         position = PricingService.price_positioning(
             current_price,
