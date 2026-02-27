@@ -1,57 +1,85 @@
-**Smart Apartment Pricing Engine**
+# Smart Apartment Pricing Engine
 
-A modular, data-driven pricing recommendation system for short-term rental hosts.
-The application analyzes comparable listings based on geospatial proximity, structural similarity, and qualitative attributes, and generates an optimal nightly price using a weighted similarity model.
+A pricing system that combines similarity-based market analysis with machine learning to recommend optimal nightly prices for short-term rental properties.
 
-**Overview**
+---
 
-This project implements a simplified pricing intelligence engine inspired by real-world short-term rental platforms.
+## Overview
 
-Given a target apartment, the system:
+This project implements a hybrid pricing strategy that integrates:
 
-1. Filters comparable listings based on:
-   - Geographic radius (Haversine distance)
-   - Bedroom count
-   - Rating tolerance
-   - Minimum review count
+1. Market-based similarity scoring  
+2. Machine learning regression models  
+3. Explainable AI techniques  
 
-2. Computes a similarity score using weighted features:
-   - Distance (30%)
-   - Amenities similarity (30%)
-   - Area similarity (20%)
-   - Rating similarity (20%)
+The application allows users to select a property location on an interactive map and generate pricing insights based on comparable listings within a selected radius.
 
-3. Generates pricing insights:
-   - Median market price
-   - Average market price
-   - Similarity-weighted recommended price
-   - Market positioning (underpriced / competitive / overpriced)
+---
 
-The pricing recommendation prioritizes highly similar listings through weighted averaging.
+## Core Features
 
-**Architecture**
+### Market-Based Pricing
+- Geographic filtering (radius-based)
+- Structural filtering (bedrooms, rating, review count)
+- Weighted similarity scoring
+- Recommended price based on comparable listings
+- Median and average market benchmarks
+- Percentile-based market positioning
 
-The system follows a clean, layered architecture:
-domain/ → Core data models,
-repository/ → Data loading layer,
-service/ → Business logic,
-ui/ → Streamlit presentation layer,
-data/ → Sample datasets
+### Machine Learning Pricing
+- Model comparison:
+  - Linear Regression
+  - Random Forest Regressor
+- Automatic best model selection based on R²
+- SHAP-based feature impact explanations
 
-**Technologies**
+### System Architecture
+- Domain layer (Listing model)
+- Repository layer (data loading)
+- Service layer (geo, filtering, similarity, pricing, ML)
+- Streamlit UI layer
+---
 
-- Python 3.9+
+## Machine Learning Approach
+
+Features used:
+- Distance to target location
+- Bedrooms
+- Bathrooms
+- Area (m²)
+- Rating
+- Amenities count
+
+Training strategy:
+- Top-N comparable listings
+- 70/30 train-test split
+- Model performance comparison
+- Best model selected dynamically
+
+---
+
+## Technology Stack
+
+- Python
 - Streamlit
-- Object-Oriented Programming
-- Geospatial distance computation (Haversine formula)
-- Similarity-based recommendation logic
-- Basic statistical analysis (median, weighted average)
+- Scikit-learn
+- SHAP
+- Folium
+- Pandas
+- NumPy
 
-**How to Run**
+---
+
+## Running the Application
 
 Install dependencies:
-pip install streamlit
 
-Run the application:
+```bash
+pip install -r requirements.txt
+```
+
+Run:
+
+```bash
 streamlit run main.py
-
+```
